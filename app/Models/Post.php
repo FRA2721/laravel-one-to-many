@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
 
     // use fill;
-    protected $fillable = ['title', 'content', 'slug', 'cover_image'];
+    protected $fillable = ['title', 'type_id', 'content', 'slug', 'cover_image'];
 
     // generate slug function;
     public static function generateSlug($title) {

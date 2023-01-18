@@ -43,7 +43,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $data_received = $request->all();
+        $data_received = $request->validated();
         $data_received["slug"] = Post::generateSlug($data_received["title"]);
         // $post = new Post();
         // $post->fill($data_received);
@@ -79,7 +79,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view("admin.posts.edit", compact("post"));
+        $types = Type::all();
+        return view("admin.posts.edit", compact("post", "types"));
     }
 
     /**
